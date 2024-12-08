@@ -12,12 +12,12 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Electrochip - Register</title>
+  <title>BisindoGo - Register</title>
 
   <!-- Firebase SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
     // Firebase Configuration
@@ -57,19 +57,27 @@
         .then((userCredential) => {
           const user = userCredential.user;
 
-          // Save user data to Firestore with username
-          setDoc(doc(firestore, "users", user.uid), {
-            username: username,
-            email: email,
-            // Do not store the password in Firestore
-          })
-          .then(() => {
-            alert('Registration successful! User data saved.');
-            window.location.href = 'login.html';  // Redirect to login after registration
-          })
-          .catch((error) => {
-            console.error('Error saving user data to Firestore:', error.message);
-            alert('Error saving user data: ' + error.message);
+          // Set username as displayName in Firebase Authentication
+          updateProfile(user, {
+            displayName: username,  // Save the username as displayName
+          }).then(() => {
+            // After successfully updating the displayName, save additional user data to Firestore
+            setDoc(doc(firestore, "users", user.uid), {
+              username: username,
+              email: email,
+              // Do not store the password in Firestore
+            })
+            .then(() => {
+              alert('Registration successful! User data saved.');
+              window.location.href = 'login.html';  // Redirect to login after registration
+            })
+            .catch((error) => {
+              console.error('Error saving user data to Firestore:', error.message);
+              alert('Error saving user data: ' + error.message);
+            });
+          }).catch((error) => {
+            console.error('Error updating displayName:', error.message);
+            alert('Error updating username: ' + error.message);
           });
         })
         .catch((error) => {
@@ -100,7 +108,7 @@
           <a class="navbar-brand" href="index.html">
             <img src="images/logo.png" alt="">
             <span>
-              Electrochip
+              BisindoGo
             </span>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -162,7 +170,9 @@
 
   <footer class="container-fluid footer_section">
     <div class="container">
-      <p>&copy; 2024 All Rights Reserved By Belajar Bahasa Isyarat</p>
+      <p>
+        2024 All Rights Reserved By Belajar Bahasa Isyarat
+      </p>
     </div>
   </footer>
 

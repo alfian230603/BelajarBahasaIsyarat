@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Electrochip</title>
+  <title>BisindoGo</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -32,10 +32,10 @@
     <!-- header section starts -->
     <header class="header_section">
       <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="index.html">
             <img src="images/logo.png" alt="">
-            <span>Electrochip</span>
+            <span id="username-display">BisindoGo</span> <!-- Display username here -->
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="s-1"> </span>
@@ -81,12 +81,10 @@
           <div class="col-md-6">
             <div class="detail_box">
               <h1>
-                Belajar <br>
-                Bahasa <br>
-                Isyarat
+                BisindoGo
               </h1>
               <p>
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem
+                Mulai perjalananmu untuk memahami dan berkomunikasi dengan komunitas tuna rungu. Kami menyediakan video tutorial lengkap, kuis interaktif, dan kamus bahasa isyarat yang mudah dipahami.
               </p>
               <a href="/about.html" class="">
                 Mulai
@@ -100,17 +98,17 @@
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                       <div class="img-box">
-                        <img src="images/slider-img.jpg" alt="">
+                        <img src="images/index 1.jpg" alt="">
                       </div>
                     </div>
                     <div class="carousel-item">
                       <div class="img-box">
-                        <img src="images/slider-img.jpg" alt="">
+                        <img src="images/index 2.jpg" alt="">
                       </div>
                     </div>
                     <div class="carousel-item">
                       <div class="img-box">
-                        <img src="images/slider-img.jpg" alt="">
+                        <img src="images/index 3.jpg" alt="">
                       </div>
                     </div>
                   </div>
@@ -172,6 +170,9 @@
       if (user) {
         document.getElementById("login-nav-item").style.display = "none";
         document.getElementById("logout-nav-item").style.display = "block";
+
+        // Set the username display to the logged-in user's display name
+        document.getElementById("username-display").innerText = `Hi, ${user.displayName || "Username belum diatur"}`;
       } else {
         document.getElementById("login-nav-item").style.display = "block";
         document.getElementById("logout-nav-item").style.display = "none";
@@ -184,6 +185,9 @@
         // Hide the logout button and show the login button
         document.getElementById("logout-nav-item").style.display = "none";
         document.getElementById("login-nav-item").style.display = "block";
+
+        // Reset username display
+        document.getElementById("username-display").innerText = "BisindoGo";
       }).catch((error) => {
         console.error("Logout failed: ", error);
       });

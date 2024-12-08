@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Electrochip</title>
+  <title>BisindoGo</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -31,15 +31,13 @@
 <body class="sub_page">
 
   <div class="hero_area">
-    <!-- header section strats -->
+    <!-- header section starts -->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <img src="images/logo.png" alt="">
-            <span>
-              Electrochip
-            </span>
+            <span id="username-display">BisindoGo</span> <!-- Display username here -->
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="s-1"> </span>
@@ -62,8 +60,13 @@
                 <li class="nav-item">
                   <a class="nav-link" href="nongki.html"> Nongki </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="login.html">Login </a>
+                <!-- Login Button -->
+                <li class="nav-item" id="login-nav-item">
+                  <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <!-- Logout Button -->
+                <li class="nav-item" id="logout-nav-item" style="display:none;">
+                  <a class="nav-link" href="#" id="logout-btn">Logout</a>
                 </li>
               </ul>
             </div>
@@ -73,8 +76,6 @@
     </header>
     <!-- end header section -->
   </div>
-
-
 
   <!-- blog section -->
 
@@ -86,52 +87,155 @@
         </h2>
         <img src="images/plug.png" alt="">
       </div>
+      <div class="container mt-3">
+        <p>Halaman “Tutorial” ini menyediakan video-video pembelajaran bahasa isyarat yang dipandu oleh Wenda Alifulloh, seorang YouTuber yang berdedikasi mengenalkan bahasa isyarat kepada masyarakat. Melalui penjelasan yang mudah dipahami, Anda akan mempelajari berbagai kosakata, kalimat, dan ekspresi yang dapat membantu berkomunikasi dengan teman-teman tuli. Video ini cocok untuk pemula maupun yang ingin memperdalam pemahaman tentang bahasa isyarat. Mulailah belajar sekarang dan jadilah bagian dari upaya menciptakan masyarakat yang lebih inklusif!</p>
+      </div>
       <div class="row">
         <div class="col-md-4">
           <div class="box">
             <div class="img-box">
-              <img src="images/blog1.jpg" alt="">
+              <img src="images/vid 1.jpg" alt="">
             </div>
             <div class="detail-box">
               <h5>
-                Beginner
+                Alfabet dalam SIBI
               </h5>
               <p>
-                Belajar bahasa isyarat dengan menonton video ini
+                Pelajari alfabet menggunakan Sistem Isyarat Bahasa Indonesia (SIBI) dengan panduan langkah demi langkah.
               </p>
-              <a class="btn btn-primary" href="https://youtu.be/4DZnZv3weBw?si=8WsbD1j2l-DePSmh" role="button" target="_blank">Nonton</a>
+              <a class="btn btn-primary" href="https://youtu.be/QUxNzUiWvAY?si=IEChmUDbnp23IpqR" role="button" target="_blank">Nonton</a>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="box">
             <div class="img-box">
-              <img src="images/blog2.jpg" alt="">
+              <img src="images/vid 2.jpg" alt="">
             </div>
             <div class="detail-box">
               <h5>
-                Intermediate
+                Angka dalam SIBI
               </h5>
               <p>
-                Belajar bahasa isyarat dengan menonton video ini
+                Pelajari angka, bilangan, dan operasi hitung menggunakan Sistem Isyarat Bahasa Indonesia (SIBI).
               </p>
-              <a class="btn btn-primary" href="https://youtu.be/4DZnZv3weBw?si=8WsbD1j2l-DePSmh" role="button" target="_blank">Nonton</a>
+              <a class="btn btn-primary" href="https://youtu.be/h681dhezQyw?si=Ey8m8qn3p1rGJ9f7" role="button" target="_blank">Nonton</a>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="box">
             <div class="img-box">
-              <img src="images/blog2.jpg" alt="">
+              <img src="images/vid 3.jpg" alt="">
             </div>
             <div class="detail-box">
               <h5>
-                Expert
+                Kata Ganti Orang
               </h5>
               <p>
-                Belajar bahasa isyarat dengan menonton video ini
+                Pelajari penggunaan kata ganti orang dalam Sistem Isyarat Bahasa Indonesia (SIBI).
               </p>
-              <a class="btn btn-primary" href="https://youtu.be/4DZnZv3weBw?si=8WsbD1j2l-DePSmh" role="button" target="_blank">Nonton</a>
+              <a class="btn btn-primary" href="https://youtu.be/P683FVLH-2o?si=NnhDVa3myxbnjV_e" role="button" target="_blank">Nonton</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/vid 4.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Bertanya dengan SIBI
+              </h5>
+              <p>
+                Pelajari cara mengungkapkan pertanyaan menggunakan Sistem Isyarat Bahasa Indonesia (SIBI).
+              </p>
+              <a class="btn btn-primary" href="https://youtu.be/TuQj8aFOcgs?si=nuv-m4F5KQmYJXDl" role="button" target="_blank">Nonton</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/vid 5.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Salam dalam SIBI
+              </h5>
+              <p>
+                Pelajari berbagai salam dan sapaan menggunakan Sistem Isyarat Bahasa Indonesia (SIBI).
+              </p>
+              <a class="btn btn-primary" href="https://youtu.be/h4hy75JWBdE?si=GmmVQPSvXl5rA1vh" role="button" target="_blank">Nonton</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/vid 6.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Kata Cinta dalam SIBI
+              </h5>
+              <p>
+                Pelajari ungkapan cinta dan kasih sayang dalam Sistem Isyarat Bahasa Indonesia (SIBI).
+              </p>
+              <a class="btn btn-primary" href="https://youtu.be/7CAjxgZpPUU?si=zogm7QKzvtjbsVa8" role="button" target="_blank">Nonton</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/vid 7.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Hari dalam SIBI
+              </h5>
+              <p>
+                Pelajari isyarat untuk hari-hari dari Senin hingga Minggu menggunakan Sistem Isyarat Bahasa Indonesia (SIBI).
+              </p>
+              <a class="btn btn-primary" href="https://youtu.be/9A8sVFdMxcA?si=06v7SfhqbFKNbXl2" role="button" target="_blank">Nonton</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/vid 8.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Kata Ibadah dalam SIBI
+              </h5>
+              <p>
+                Pelajari isyarat untuk kata-kata terkait ibadah seperti puasa dan sholat dalam Sistem Isyarat Bahasa Indonesia (SIBI).
+              </p>
+              <a class="btn btn-primary" href="https://youtu.be/pbVDNa4WLlQ?si=CQArP9HMhEECr-QS" role="button" target="_blank">Nonton</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/vid 9.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Kata Medis dalam SIBI
+              </h5>
+              <p>
+                Pelajari isyarat untuk istilah medis dan kedokteran dalam Sistem Isyarat Bahasa Indonesia (SIBI).
+              </p>
+              <a class="btn btn-primary" href="https://youtu.be/QYHY0sq1mcM?si=dYwRLDcsvwmjKDwq" role="button" target="_blank">Nonton</a>
             </div>
           </div>
         </div>
@@ -147,8 +251,7 @@
       <div class="row">
         <div class="col-lg-7 col-md-9 mx-auto">
           <p>
-            &copy; 2019 All Rights Reserved By
-            <a href="https://html.design/">Free Html Templates</a>
+            © 2024 Belajar Bicara Isyarat. All rights reserved.
           </p>
         </div>
       </div>
@@ -156,6 +259,57 @@
   </footer>
   <!-- footer section -->
 
+  <!-- Firebase and custom JavaScript -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDxih1Xgx6c48UaCCzRC8xFiP6KIFAiDeE",
+      authDomain: "bicaraisyarat.firebaseapp.com",
+      projectId: "bicaraisyarat",
+      storageBucket: "bicaraisyarat.firebasestorage.app",
+      messagingSenderId: "174239009288",
+      appId: "1:174239009288:web:1f5670844fe0d88e125fbd",
+      measurementId: "G-WML5XTLHEF"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Check if user is logged in when the page loads
+    window.onload = function() {
+      const user = auth.currentUser;
+
+      // If user is logged in
+      if (user) {
+        document.getElementById("login-nav-item").style.display = "none";
+        document.getElementById("logout-nav-item").style.display = "block";
+
+        // Set the username display to the logged-in user's display name
+        document.getElementById("username-display").innerText = user.displayName || "Username belum diatur";
+      } else {
+        document.getElementById("login-nav-item").style.display = "block";
+        document.getElementById("logout-nav-item").style.display = "none";
+      }
+    };
+
+    // Logout functionality
+    document.getElementById('logout-btn')?.addEventListener('click', function() {
+      signOut(auth).then(() => {
+        // Hide the logout button and show the login button
+        document.getElementById("logout-nav-item").style.display = "none";
+        document.getElementById("login-nav-item").style.display = "block";
+
+        // Reset username display
+        document.getElementById("username-display").innerText = "BisindoGo";
+      }).catch((error) => {
+        console.error("Logout failed: ", error);
+      });
+    });
+  </script>
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
