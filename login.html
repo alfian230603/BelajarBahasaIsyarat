@@ -17,7 +17,7 @@
   <!-- Firebase SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
     import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
     // Firebase Configuration
@@ -36,7 +36,7 @@
     const auth = getAuth(app);
     const firestore = getFirestore(app);
 
-    // Login Function
+    // Login Function with email & password
     const loginForm = document.getElementById('login-form');
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -71,6 +71,28 @@
         .catch((error) => {
           console.error("Error getting documents: ", error);
           alert("An error occurred while fetching user data");
+        });
+    });
+
+    // Google Sign-In Function
+    const googleLoginButton = document.getElementById('google-login');
+    googleLoginButton.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const provider = new GoogleAuthProvider();
+
+      // Sign in with Google
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // Successful Google login
+          const user = result.user;
+          console.log("Google login successful: ", user);
+          window.location.href = 'index.html';  // Redirect after successful login
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error("Google login error: ", error);
+          alert("Google login failed: " + error.message);
         });
     });
   </script>
@@ -146,6 +168,11 @@
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
+
+    <div class="mt-3 text-center">
+      <button id="google-login" class="btn btn-danger">Login with Google</button>
+    </div>
+
     <p class="mt-3">Don't have an account? <a href="register.html">Register here</a></p>
   </div>
 

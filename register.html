@@ -17,7 +17,7 @@
   <!-- Firebase SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
     // Firebase Configuration
@@ -84,6 +84,37 @@
           alert('Registration failed: ' + error.message);
         });
     });
+
+    // Google Sign Up Function
+    const googleSignupButton = document.getElementById('google-signup');
+    googleSignupButton.addEventListener('click', () => {
+      const provider = new GoogleAuthProvider();  // Create an instance of GoogleAuthProvider
+
+      // Handle sign up with popup
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // User successfully logged in or signed up
+          const user = result.user;
+
+          // Check if the user already has a registered account
+          setDoc(doc(firestore, "users", user.uid), {
+            username: user.displayName || "User", // Use Google's display name if available
+            email: user.email,
+          })
+          .then(() => {
+            alert('Sign Up successful with Google!');
+            window.location.href = 'login.html';  // Redirect after successful sign up
+          })
+          .catch((error) => {
+            console.error('Error saving user data to Firestore:', error.message);
+            alert('Error saving user data: ' + error.message);
+          });
+        })
+        .catch((error) => {
+          console.error('Error with Google sign up:', error.message);
+          alert('Sign up failed: ' + error.message);
+        });
+    });
   </script>
 
   <!-- slider stylesheet -->
@@ -146,6 +177,9 @@
 
   <div class="register-container mt-5">
     <h2 class="text-center">Register</h2>
+
+    <!-- Google Sign Up Button -->
+
     <form id="register-form">
       <div class="form-group">
         <label for="username">Username:</label>
@@ -164,21 +198,20 @@
         <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password" required>
       </div>
       <button type="submit" class="btn btn-primary">Register</button>
+      <div class="form-group mt-3 text-center">
+        <button type="button" id="google-signup" class="btn btn-danger">Sign Up with Google</button>
+      </div>
     </form>
-    <p class="mt-3">Already have an account? <a href="login.html">Login here</a></p>
+    
+    <p class="text-center">Already have an account? <a href="login.html">Login here</a></p>
+
   </div>
 
   <footer class="container-fluid footer_section">
     <div class="container">
-      <p>
-        2024 All Rights Reserved By Belajar Bahasa Isyarat
-      </p>
+      <p>© 2024 All Rights Reserved By <a href="#">BisindoGo</a></p>
     </div>
   </footer>
-
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-
 </body>
 
 </html>

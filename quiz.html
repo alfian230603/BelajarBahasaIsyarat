@@ -79,65 +79,56 @@
     <!-- end header section -->
   </div>
 
-  <!-- service section -->
-  <section class="service_section layout_padding">
+  <!-- Quiz section -->
+  <section class="quiz_section layout_padding">
     <div class="container">
       <div class="heading_container">
         <h2>
-          Quiz
+          Quiz: Belajar Bahasa Isyarat
         </h2>
         <img src="images/plug.png" alt="">
       </div>
 
-      <div class="service_container">
-        <div class="box">
-          <div class="img-box">
-            <img src="images/s1.png" class="img1" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Equipment installation
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-            </p>
+      <!-- Quiz Questions -->
+      <div id="quiz-container">
+        <div class="quiz-question">
+          <h5>1. Apa arti gerakan tangan ini?</h5>
+          <div class="quiz-options">
+            <label><input type="radio" name="question1" value="A"> A. Huruf A dalam bahasa isyarat</label><br>
+            <label><input type="radio" name="question1" value="B"> B. Huruf B dalam bahasa isyarat</label><br>
+            <label><input type="radio" name="question1" value="C"> C. Huruf C dalam bahasa isyarat</label><br>
+            <label><input type="radio" name="question1" value="D"> D. Huruf D dalam bahasa isyarat</label><br>
           </div>
         </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/s2.png" class="img1" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Windmill Energy
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-            </p>
+
+        <div class="quiz-question">
+          <h5>2. Apa arti gerakan tangan ini?</h5>
+          <div class="quiz-options">
+            <label><input type="radio" name="question2" value="A"> A. Terima kasih</label><br>
+            <label><input type="radio" name="question2" value="B"> B. Selamat pagi</label><br>
+            <label><input type="radio" name="question2" value="C"> C. Permisi</label><br>
+            <label><input type="radio" name="question2" value="D"> D. Tolong</label><br>
           </div>
         </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/s3.png" class="img1" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Equipment Maintenance
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-            </p>
+
+        <div class="quiz-question">
+          <h5>3. Apa arti gerakan tangan ini?</h5>
+          <div class="quiz-options">
+            <label><input type="radio" name="question3" value="A"> A. Nama saya</label><br>
+            <label><input type="radio" name="question3" value="B"> B. Bagaimana kabarmu?</label><br>
+            <label><input type="radio" name="question3" value="C"> C. Terima kasih</label><br>
+            <label><input type="radio" name="question3" value="D"> D. Selamat malam</label><br>
           </div>
         </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          Main
-        </a>
+        
+        <!-- Submit Button -->
+        <div class="btn-box">
+          <button type="button" id="submit-quiz">Submit Quiz</button>
+        </div>
       </div>
     </div>
   </section>
-  <!-- end service section -->
+  <!-- end quiz section -->
 
   <!-- footer section -->
   <footer class="container-fluid footer_section">
@@ -203,11 +194,17 @@
         console.error("Logout failed: ", error);
       });
     });
+
+    // Handling quiz submission
+    document.getElementById('submit-quiz').addEventListener('click', function() {
+      alert("Quiz has been submitted! We'll show your results soon.");
+    });
   </script>
 
   <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/custom.js"></script>
 </body>
 
 </html>
